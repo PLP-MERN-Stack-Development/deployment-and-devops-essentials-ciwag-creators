@@ -1,24 +1,31 @@
 # BioVerse Academy
 
+BioVerse Academy is a basic MERN stack demo app built for the "Deployment and DevOps Essentials" assignment. It serves as a simple learning platform to post and teach biology content.
 
-A basic MERN stack demo app for the "Deployment and DevOps Essentials" assignment.
+---
 
+## Live URLs
 
-## Live URLs (fill after deployment)
-Frontend (Vercel): https://your-vercel-domain.vercel.app
-Backend (Render): https://your-backend.onrender.com
+- **Frontend (Vercel):** [https://deployment-and-devops-essentials-ci.vercel.app/](https://deployment-and-devops-essentials-ci.vercel.app/)  
+- **Backend (Render):** [https://deployment-and-devops-essentials-ci.onrender.com](https://deployment-and-devops-essentials-ci.onrender.com)
 
+---
 
-## What this project includes
-- Vite + React frontend (simple multi-page UI)
-- Express backend with a test API route and health endpoint
-- MongoDB Atlas connection skeleton
-- CI workflows for frontend and backend (GitHub Actions)
-- Render + Vercel-ready configs
+## Project Features
 
+- Vite + React frontend with multi-page layout (Home, About)
+- Express.js backend with test API route and health endpoint
+- MongoDB Atlas connection
+- CI/CD pipelines via GitHub Actions
+- Responsive design with gradient hero and hover animations
+- Monitoring setup (health endpoint + uptime checks)
 
-## Local development
-1. Clone repository
+---
+
+## Local Development
+
+1. Clone the repository:
+
 ```bash
 git clone YOUR_REPO_URL
 cd bioverse-academy
