@@ -1,6 +1,7 @@
-const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/congrats`);
-const data = await response.json();
-console.log(data);
+fetch(`${import.meta.env.VITE_BACKEND_URL}/api/congrats`)
+  .then(res => res.json())
+  .then(data => console.log(data));
+
 
 
 export async function getWelcome() {
