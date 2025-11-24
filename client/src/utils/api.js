@@ -1,26 +1,13 @@
-// src/utils/api.js
-const BASE_URL = import.meta.env.VITE_BACKEND_URL;
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
-export async function getRequest(endpoint) {
-  const res = await fetch(`${BASE_URL}${endpoint}`);
-  if (!res.ok) {
-    const error = await res.text();
-    throw new Error(error || "API request failed");
-  }
+export const getWelcome = async () => {
+  const res = await fetch(`${API_URL}/api`);
+  if (!res.ok) throw new Error('API request failed');
   return res.json();
-}
+};
 
-export async function postRequest(endpoint, data) {
-  const res = await fetch(`${BASE_URL}${endpoint}`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
-  if (!res.ok) {
-    const error = await res.text();
-    throw new Error(error || "API request failed");
-  }
+export const getHealth = async () => {
+  const res = await fetch(`${API_URL}/health`);
+  if (!res.ok) throw new Error('Health check failed');
   return res.json();
-}
+};

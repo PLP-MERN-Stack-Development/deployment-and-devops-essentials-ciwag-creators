@@ -1,42 +1,41 @@
-import { useEffect, useState } from 'react'
-import { getWelcome, getHealth } from '../api'
-
-
 export default function Home() {
-const [message, setMessage] = useState('')
-const [health, setHealth] = useState(null)
+  return (
+    <div className="home-page">
+      {/* Hero Section */}
+      <section className="hero">
+        <div className="hero-content">
+          <h1>Welcome to BioVerse Academy</h1>
+          <p className="lead">
+            Learn biology step by step with clear lessons, visuals, and practical examples.
+          </p>
+          <a href="#getting-started" className="cta-btn">Start Learning</a>
 
+          {/* Floating icons */}
+          <div className="hero-icons">
+            <span className="icon dna">🧬</span>
+            <span className="icon leaf">🍃</span>
+            <span className="icon microscope">🔬</span>
+            <span className="icon atom">⚛️</span>
+          </div>
+        </div>
+      </section>
 
-useEffect(() => {
-getWelcome().then(d => setMessage(d.message)).catch(() => setMessage('Could not reach API'))
-}, [])
+      {/* Main content cards */}
+      <div className="container" id="getting-started">
+        <div className="card">
+          <h2>Getting Started</h2>
+          <p>
+            Explore simple lessons, fun experiments, and visual explanations to master biology.
+          </p>
+        </div>
 
-
-const checkHealth = async () => {
-try {
-const h = await getHealth()
-setHealth(h)
-} catch (err) {
-setHealth({ status: 'DOWN' })
-}
-}
-
-
-return (
-<div>
-<h1>BioVerse Academy</h1>
-<p className="lead">Learn biology with clear lessons and practical examples.</p>
-<section>
-<h2>API Message</h2>
-<p>{message || 'Loading...'}</p>
-</section>
-
-
-<section>
-<h2>Health Check</h2>
-<button onClick={checkHealth}>Run Health Check</button>
-{health && <pre>{JSON.stringify(health, null, 2)}</pre>}
-</section>
-</div>
-)
+        <div className="card">
+          <h2>About BioVerse</h2>
+          <p>
+            BioVerse Academy is a platform for biology enthusiasts to learn and share knowledge. Build your skills with interactive lessons and practical examples.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
 }

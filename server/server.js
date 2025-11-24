@@ -15,8 +15,12 @@ const app = express()
 app.use(express.json())
 app.use(helmet())
 app.use(morgan('combined'))
-app.use(cors({ origin: [process.env.CLIENT_URL, process.env.VERCEL_URL].filter(Boolean) }))
-
+app.use(cors({
+  origin: [
+    process.env.CLIENT_URL, // your Vercel URL, e.g., https://your-app.vercel.app
+    process.env.VERCEL_URL, // optional, for preview deployments
+  ].filter(Boolean)
+}));
 
 // Connect DB
 connectDB()
