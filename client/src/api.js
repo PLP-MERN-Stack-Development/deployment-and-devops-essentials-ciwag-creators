@@ -1,4 +1,6 @@
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
+const response = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/congrats`);
+const data = await response.json();
+console.log(data);
 
 
 export async function getWelcome() {
